@@ -1,0 +1,22 @@
+from random import Random
+
+# Создаём объект класса Random
+r = Random()
+
+# Генерируем случайное 6-значное число
+n = r.randint(100000, 999999)
+
+# Преобразуем число в строку
+s = str(n)
+
+# Превращаем строку в список
+digits = list(s)
+
+# Случайная позиция для цифры 3
+position = r.randint(0, 5)
+digits[position] = '3'
+
+# Склеиваем обратно в строку
+result = ''.join(digits)
+
+print(result)
