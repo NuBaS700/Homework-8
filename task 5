@@ -1,0 +1,28 @@
+matrix = [
+    [0,1,2,4,8],
+    [6,2,2,1,9],
+    [3,3,3,3,3],
+    [4,6,7,1,2],
+    [5,7,3,4,0]
+]
+
+# 1. Сумма всех элементов матрицы
+total_sum = 0
+for row in matrix:
+    for value in row:
+        total_sum += value
+
+print("Сумма всех элементов:", total_sum)
+
+# 2. Максимум сумм элементов каждого столбца
+num_columns = len(matrix[0])
+max_column_sum = float('-inf')  # Начинаем с очень маленького числа
+
+for col in range(num_columns):
+    column_sum = 0
+    for row in matrix:
+        column_sum += row[col]
+    if column_sum > max_column_sum:
+        max_column_sum = column_sum
+
+print("Максимум сумм столбцов:", max_column_sum)
