@@ -1,0 +1,38 @@
+# Исходные данные
+students = [
+    ["0001", "Антонов", "Антон", "Игоревич", "20.08.2009", "БСТ161"],
+    ["1102", "Богов", "Артем", "Игоревич", "25.01.2010", "БСТ162"],
+    ["0333", "Глаголева", "Анастасия", "Николаевна", "11.07.2009", "БСТ163"],
+    ["4004", "Степанова", "Наталья", "Александровна", "13.02.2008", "БСТ161"],
+    ["0045", "Боков", "Игорь", "Харитонович", "02.06.2009", "БСТ161"],
+    ["0096", "Васильков", "Валентин", "Сергеевич", "20.03.2009", "БСТ164"],
+    ["0607", "Сиропова", "Виолетта", "Эдуардовна", "28.05.2010", "БСТ162"]
+]
+
+# 1. Преобразуем список в словарь
+students_dict = {}
+
+for student in students:
+    student_id = student[0]
+    students_dict[student_id] = student[1:]
+
+# 2. Функция изменения группы студента
+def change_group(student_id, new_group):
+    if student_id in students_dict:
+        students_dict[student_id][-1] = new_group
+        print(f"Группа студента {student_id} изменена на {new_group}")
+    else:
+        print("Студент с таким номером не найден")
+
+# 3. Функция вывода студентов по группе
+def print_students_by_group(group_number):
+    found = False
+    print(f"Студенты группы {group_number}:")
+    for student in students_dict.values():
+        if student[-1] == group_number:
+            print(f"{student[0]} {student[1]} {student[2]}")
+            found = True
+
+    if not found:
+        print("В данной группе нет студентов")
+
